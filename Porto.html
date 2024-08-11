@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        .about-title,
+        .about-subtitle {
+            text-align: center; /* Centre le texte horizontalement */
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-title {
+            font-size: 2em; /* Ajustez la taille du texte selon vos préférences */
+            letter-spacing: 2px; /* Espacement des lettres pour l'esthétique */
+        }
+
+        .about-subtitle {
+            font-size: 1.5em; /* Ajustez la taille du texte selon vos préférences */
+            letter-spacing: 2px; /* Espacement des lettres pour l'esthétique */
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px; /* Ajout d'un padding pour éviter que le texte touche les bords de l'écran */
+        }
+
+        .container {
+            position: relative;
+            padding: 20px;
+            text-align: center; /* Centre le texte */
+        }
+
+        .title {
+            font-size: 1.5em; /* Ajustez la taille du texte pour qu'il soit plus lisible sur les petits écrans */
+        }
+
+        .date-range {
+            font-size: 1em; /* Ajustez la taille du texte */
+        }
+
+        .horizontal-container {
+            display: flex;
+            justify-content: space-around; /* Disposition des boutons en ligne avec un espace entre eux */
+            margin-top: 20px;
+        }
+
+        .section {
+            flex: 1; /* Chaque section prend une part égale de l'espace disponible */
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Media Queries pour les petits écrans */
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 1.5em; /* Réduit la taille du titre pour les petits écrans */
+            }
+
+            .about-description {
+                font-size: 0.9em; /* Réduit la taille de la description pour une meilleure lisibilité */
+            }
+
+            .image-container img {
+                max-width: 80%; /* Augmente la taille de l'image pour les petits écrans */
+                margin-top: 10px; /* Réduit la marge supérieure */
+            }
+
+            .horizontal-container {
+                flex-direction: column; /* Passe en colonne pour les petits écrans */
+            }
+
+            .section {
+                width: 100%;
+                padding: 15px; /* Ajoute plus de padding pour les sections */
+                font-size: 1em; /* Ajuste la taille de la police */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-title {
+                font-size: 1.2em; /* Réduit encore plus la taille du titre pour les très petits écrans */
+            }
+
+            .about-description {
+                font-size: 0.8em; /* Réduit la taille de la description */
+            }
+
+            .date-range {
+                font-size: 0.9em; /* Ajuste la taille de la plage de dates */
+            }
+
+            .horizontal-container {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Premier Container -->
+    <div class="container">
+        <div class="lines-container top-right">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div class="cross-container">
+            <span class="cross">X</span>
+            <span class="cross">X</span>
+            <span class="cross">X</span>
+            <span class="cross">X</span>
+            <span class="cross">X</span>
+            <span class="cross">X</span>
+        </div>
+        <h1 class="title">PORTFOLIO</h1>
+        <p class="date-range">2022 ------------ 2024</p>
+        <div class="lines-container bottom-left">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <!-- Deuxième Container -->
+    <div class="vertical-container">
+        <div class="image-and-text">
+            <input id="file-upload" type="file" accept="image/*" multiple style="display: none;">
+            <div class="text-content">
+                <h2 class="about-title">A PROPOS DE MOI</h2>
+                
+                <p class="about-description">Je suis un artiste peintre et sculpteur explorant les liens entre matière et émotion, avec un focus sur la connexion entre nature et humanité. Je travaille principalement le bois, un matériau qui symbolise force et fragilité. Mes sculptures capturent l'énergie brute du bois, tandis que mes peintures explorent les formes et couleurs pour susciter des émotions. Inspiré par le masque Goli Kple Kple, mon art met en lumière la déconnexion entre la civilisation moderne et les principes spirituels, tout en cherchant à reconnecter l'humanité avec son essence profonde.</p>
+                <p class="contacts-title">Mes contacts</p>
+                <div class="contacts">
+                    <div class="contact-item">
+                        <i class="phone-icon">&#128222;</i>
+                        <span class="contact-text">07 59 21 05 51 <br>
+                            01 03 39 19 69</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="email-icon">&#9993;</i>
+                        <span class="contact-text">Kangamickael1@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneurs Horizontaux -->
+    <div class="horizontal-container">
+        <div class="section" onclick="window.location.href='creation originale.html';">
+            <p class="text">Création originale</p>
+        </div>
+        <div class="section" onclick="window.location.href='creation artisanale.html';">
+            <p class="text">Création artisanale</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('file-upload').addEventListener('change', function(event) {
+            const files = event.target.files;
+            const imageContainer = document.getElementById('image-container');
+
+            for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '150px';
+                    img.style.height = '150px';
+                    img.style.objectFit = 'cover';
+                    img.style.margin = '10px';
+                    imageContainer.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

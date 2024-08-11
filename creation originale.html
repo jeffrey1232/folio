@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Artisanale</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(189, 186, 186);
+        }
+
+        .container {
+            background-color: #f0f3ca;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 1000px; /* Largeur maximale augmentée pour plus d'espace */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Ombre plus légère */
+            text-align: center;
+        }
+
+        .image-gallery {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour grands écrans */
+            gap: 10px;
+        }
+
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-item:hover {
+            transform: scale(1.1);
+        }
+
+        .image-gallery img {
+            width: 150px; /* Taille fixe pour les écrans plus grands */
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+
+        .remove-button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les écrans moyens */
+                gap: 8px;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                width: 95%;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+                gap: 5px;
+            }
+
+            .image-gallery img {
+                width: 100px; /* Taille plus petite pour les petits écrans */
+                height: 100px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .close {
+                font-size: 30px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Création Originale</h1>
+
+        <div class="image-gallery" id="image-gallery">
+            <!-- Ajout des images 2 par 2 en colonne et en ligne -->
+            <div class="image-item">
+                <img src="Image/A.jpg" alt="Image 1" onclick="openModal('Image/1.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/B.jpg" alt="Image 2" onclick="openModal('Image/2.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/C.jpg" alt="Image 3" onclick="openModal('Image/3.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/D.jpg" alt="Image 4" onclick="openModal('Image/4.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/E.jpg" alt="Image 5" onclick="openModal('Image/5.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/F.jpg" alt="Image 6" onclick="openModal('Image/6.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/G.jpg" alt="Image 7" onclick="openModal('Image/7.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/H.jpg" alt="Image 8" onclick="openModal('Image/8.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/I.jpg" alt="Image 9" onclick="openModal('Image/9.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/J.jpg" alt="Image 10" onclick="openModal('Image/10.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/K.jpg" alt="Image 11" onclick="openModal('Image/11.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/L.jpg" alt="Image 12" onclick="openModal('Image/12.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/M.jpg" alt="Image 13" onclick="openModal('Image/13.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/N.jpg" alt="Image 14" onclick="openModal('Image/14.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/O.jpg" alt="Image 15" onclick="openModal('Image/15.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/P.jpg" alt="Image 17" onclick="openModal('Image/17.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/R.jpg" alt="Image 18" onclick="openModal('Image/18.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/S.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/T.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/W.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/Y.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/Z.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/KK.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/V.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/X.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image">
+        </div>
+    </div>
+
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = src;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

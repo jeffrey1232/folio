@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Artisanale</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(189, 186, 186);
+        }
+
+        .container {
+            background-color: #f0f3ca;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .image-gallery {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+            gap: 10px;
+        }
+
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-item:hover {
+            transform: scale(1.1);
+        }
+
+        .image-gallery img {
+            width: 150px; /* Augmenter la largeur */
+            height: 150px; /* Augmenter la hauteur */
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+
+        .remove-button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery img {
+                width: 120px; /* Taille pour écrans moyens */
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+
+            .image-gallery img {
+                width: 100px; /* Taille pour petits écrans */
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Création Artisanale</h1>
+
+        <div class="image-gallery" id="image-gallery">
+            <!-- Ajout des images 2 par 2 en colonne et en ligne -->
+            <div class="image-item">
+                <img src="Image/1.jpg" alt="Image 1" onclick="openModal('Image/1.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/2.jpg" alt="Image 2" onclick="openModal('Image/2.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/3.jpg" alt="Image 3" onclick="openModal('Image/3.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/4.jpg" alt="Image 4" onclick="openModal('Image/4.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/5.jpg" alt="Image 5" onclick="openModal('Image/5.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/6.jpg" alt="Image 6" onclick="openModal('Image/6.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/7.jpg" alt="Image 7" onclick="openModal('Image/7.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/8.jpg" alt="Image 8" onclick="openModal('Image/8.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/9.jpg" alt="Image 9" onclick="openModal('Image/9.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/10.jpg" alt="Image 10" onclick="openModal('Image/10.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/11.jpg" alt="Image 11" onclick="openModal('Image/11.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/12.jpg" alt="Image 12" onclick="openModal('Image/12.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/13.jpg" alt="Image 13" onclick="openModal('Image/13.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/14.jpg" alt="Image 14" onclick="openModal('Image/14.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/15.jpg" alt="Image 15" onclick="openModal('Image/15.jpg')">
+            </div>
+            
+            <div class="image-item">
+                <img src="Image/17.jpg" alt="Image 17" onclick="openModal('Image/17.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/18.jpg" alt="Image 18" onclick="openModal('Image/18.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/19.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+            <div class="image-item">
+                <img src="Image/20.jpg" alt="Image 19" onclick="openModal('Image/19.jpg')">
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image">
+        </div>
+    </div>
+
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = src;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
